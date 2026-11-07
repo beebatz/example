@@ -12,12 +12,12 @@ signature: beebat
 </script>
 
 #4471 merged 412 reports into one ticket. Reading them one by one, they are not one problem.
-Each group below is one report-level cause, with the number of reports it covers.
+Counts follow the desk's cause logic over the 412 unique reports. Groups overlap where noted.
 
-- **312 reports**: the shared parser reads dates month first. Day-first tenants see the day and month exchanged. This is the main bug, and the fix already queued covers it. [Issue 4](https://github.com/beebatz/example/issues/4)
-- **64 reports**: invites move with no user action. Most reports say nobody touched the event. The dates still flip, but the trigger is different, so this may not be closed by the parser fix. [Issue 1](https://github.com/beebatz/example/issues/1)
-- **31 reports**: booking-v3 form shows the MM/DD hint to day-first tenants. Form channel only. The intake tags disagree with the cause on 13 of them. [Issue 2](https://github.com/beebatz/example/issues/2)
-- **5 reports**: one-day shift, not a month flip. Possibly timezone or date-boundary. [Issue 3](https://github.com/beebatz/example/issues/3)
+- **379 reports**: the shared parser reads dates month first. Day-first tenants see the day and month exchanged. This is the main bug, and the fix already queued covers it. Includes the 5 one-day shifts below as footnotes. [Issue 4](https://github.com/beebatz/example/issues/4)
+- **64 reports**: invites move with no user action. Most reports say nobody touched the event. The dates still flip, but the trigger is different, so this may not be closed by the parser fix. These overlap the parser and hint counts: 62 under parser, 2 under hint. [Issue 1](https://github.com/beebatz/example/issues/1)
+- **33 reports**: booking-v3 form shows the MM/DD hint to day-first tenants. 31 are form reports; 2 are no-action reports the desk places under hint. The intake tags disagree with the cause on 15 of them. [Issue 2](https://github.com/beebatz/example/issues/2)
+- **5 reports**: one-day shift, not a month flip. Possibly timezone or date-boundary. Counted under parser and footnoted. [Issue 3](https://github.com/beebatz/example/issues/3)
 
 ## What to check before closing #4471
 
