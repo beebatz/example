@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>#4471 · what the 412 reports show · support kb</title>
+<style>
+:root{--bg:#fbfaf7;--fg:#1d1d1b;--muted:#6b6a66;--line:#e3e0d8;--accent:#2f6f5e;--mono:ui-monospace,Menlo,monospace}
+@media (prefers-color-scheme:dark){:root{--bg:#171716;--fg:#ecebe6;--muted:#9c9a93;--line:#34332f;--accent:#6fbfa6}}
+body{margin:0;background:var(--bg);color:var(--fg);font:16px/1.6 system-ui,sans-serif}
+.kb{max-width:760px;margin:0 auto;padding:2rem 16px 4rem}
+a{color:var(--accent)}.crumb{font:.8rem var(--mono);text-decoration:none;color:var(--muted)}
+h1{margin:.25rem 0 .5rem;line-height:1.2}.meta{display:flex;flex-wrap:wrap;gap:.5rem 1rem;color:var(--muted);font-size:.85rem;margin:0}
+.status{border:1px solid var(--line);border-radius:99px;padding:0 .6rem}
+.stamp{margin:2rem 0 0;font:.85rem var(--mono);color:var(--muted)}.stamp b{color:var(--accent);letter-spacing:.04em}
+footer{margin-top:3rem;color:var(--muted);font-size:.8rem;border-top:1px solid var(--line);padding-top:1rem}
+</style>
+</head>
+<body>
+<div class="kb">
+<header>
+<a class="crumb" href="/kb">support desk · kb</a>
+<h1>#4471 · what the 412 reports show</h1>
+<p class="meta"><span>owner <b>beebat</b></span><span class="status open">open</span><span>reviewed 2026-11-07 · 0 days ago</span></p>
+</header>
+<main>
+<p>#4471 merged 412 reports into one ticket. Reading them one by one, they are not one problem. Counts follow the desk's cause logic over the 412 unique reports. Groups overlap where noted.</p>
+<ul><li><b>379 reports</b>: the shared parser reads dates month first. Day-first tenants see the day and month exchanged. This is the main bug, and the fix already queued covers it. Includes the 5 one-day shifts below as footnotes. <a href="https://github.com/beebatz/example/issues/4">Issue 4</a></li><li><b>64 reports</b>: invites move with no user action. Most reports say nobody touched the event. The dates still flip, but the trigger is different, so this may not be closed by the parser fix. These overlap the parser and hint counts: 62 under parser, 2 under hint. <a href="https://github.com/beebatz/example/issues/1">Issue 1</a></li><li><b>33 reports</b>: booking-v3 form shows the MM/DD hint to day-first tenants. 31 are form reports; 2 are no-action reports the desk places under hint. The intake tags disagree with the cause on 15 of them. <a href="https://github.com/beebatz/example/issues/2">Issue 2</a></li><li><b>5 reports</b>: one-day shift, not a month flip. Possibly timezone or date-boundary. Counted under parser and footnoted. <a href="https://github.com/beebatz/example/issues/3">Issue 3</a></li></ul>
+<h2>What to check before closing #4471</h2>
+<ul><li>Which job writes the invite for the 64 no-action reports.</li><li>Whether the booking-v3 hint fix is separate from the parser fix.</li><li>How invite dates are stored and converted, for the 5 one-day shifts.</li></ul>
+<p>Method: heuristic, run by hand on the report text and tenant files. Counts are from the export and may move if the desk re-checks them.</p>
+<p class="stamp">desk ref <b>DR-RKF4-CS18</b></p>
+</main>
+<footer>Pages are written by people. Tables and charts are built from data at render time.</footer>
+</div>
+</body>
+</html>
